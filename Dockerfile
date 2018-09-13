@@ -19,6 +19,6 @@ RUN groupadd -g 999 bot && \
 USER bot
 
 # Install and update updatinate
-RUN curl "https://github.com/pantheon-systems/updatinate/releases/download/0.1.10/updatinate.phar" -L -o "/usr/local/bin/updatinate"
+RUN curl "https://github.com/pantheon-systems/updatinate/releases/download/0.3.0/updatinate.phar" -L -o "/usr/local/bin/updatinate"
 RUN chmod +x /usr/local/bin/updatinate
 RUN updatinate self:update
