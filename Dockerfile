@@ -17,6 +17,7 @@ RUN groupadd -g 999 bot && \
     chown -R bot /usr/local && \
     chown -R bot /updatinator
 USER bot
+RUN mkdir $HOME/bin
 
 # Install and update updatinate
 RUN curl "https://github.com/pantheon-systems/updatinate/releases/download/0.3.0/updatinate.phar" -L -o "/usr/local/bin/updatinate"
