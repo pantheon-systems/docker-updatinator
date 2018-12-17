@@ -22,3 +22,7 @@ USER bot
 RUN curl "https://github.com/pantheon-systems/updatinate/releases/download/0.3.0/updatinate.phar" -L -o "/usr/local/bin/updatinate"
 RUN chmod +x /usr/local/bin/updatinate
 RUN updatinate self:update
+
+# Install wp-cli
+RUN curl https://github.com/wp-cli/wp-cli/releases/download/v2.0.1/wp-cli-2.0.1.phar -L -o $HOME/bin/wp
+RUN chmod +x $HOME/bin/wp
