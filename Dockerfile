@@ -7,8 +7,22 @@ WORKDIR /updatinator
 # Copy the current directory contents into the container at our working directory
 ADD . /updatinator
 
-# Collect the components we need for this image
-RUN apt-get update
+# install the PHP extensions we need
+# (from https://github.com/docker-library/wordpress/blob/b3739870faafe1886544ddda7d2f2a88882eeb31/php7.1/fpm/Dockerfile)
+RUN set -ex; \
+    \
+    savedAptMark="$(apt-mark showmanual)"; \
+    \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        libjpeg-dev \
+        libpng-dev \
+    ; \
+    \
+    docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
+    docker-php-ext-install gd mysqli opcache zip;
+
+# Install other packages we might need
 RUN apt-get install -y jq
 
 # Create an unpriviliged testuser
