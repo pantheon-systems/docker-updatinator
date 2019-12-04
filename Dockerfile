@@ -1,5 +1,5 @@
 # Our main tool is written in php, so we'll use a php base container
-FROM drupaldocker/php:7.3-cli-2.x
+FROM drupaldocker/php:7.4-cli-2.x
 
 # Set the working directory
 WORKDIR /updatinator
