@@ -8,16 +8,7 @@ WORKDIR /updatinator
 ADD . /updatinator
 
 # Install other packages we might need
-RUN apk update && apk add bash jq mysql mysql-client && \
-  mkdir /scripts && \
-  rm -rf /var/cache/apk/*
-
-VOLUME ["/var/lib/mysql"]
-
-COPY ./startup.sh /scripts/startup.sh
-RUN chmod +x /scripts/startup.sh
-
-EXPOSE 3306
+RUN apk add bash jq
 
 # Create an unpriviliged testuser
 RUN addgroup -S bot && adduser -S -G bot bot && \ 
@@ -36,5 +27,3 @@ RUN updatinate self:update
 # Install wp-cli
 RUN curl https://github.com/wp-cli/wp-cli/releases/download/v2.0.1/wp-cli-2.0.1.phar -L -o /usr/local/bin/wp
 RUN chmod +x /usr/local/bin/wp
-
-ENTRYPOINT ["/scripts/startup.sh"]
