@@ -8,7 +8,7 @@ WORKDIR /updatinator
 ADD . /updatinator
 
 # Install other packages we might need
-RUN apk add bash jq
+RUN apk add jq
 
 # Create an unpriviliged testuser
 RUN addgroup -S bot && adduser -S -G bot bot && \ 
