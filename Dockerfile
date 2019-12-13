@@ -1,5 +1,5 @@
 # Our main tool is written in php, so we'll use a php base container
-FROM drupaldocker/php:7.1-cli
+FROM drupaldocker/php:7.3-cli-2.x
 
 # Set the working directory
 WORKDIR /updatinator
@@ -25,7 +25,7 @@ RUN set -ex; \
 // Make sure we have the latest version of Composer
 RUN curl -sS https://getcomposer.org/installer | php \
   && mv composer.phar /usr/local/bin/composer
-
+  
 # Install other packages we might need
 RUN apt-get install -y jq
 
