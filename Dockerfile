@@ -1,5 +1,5 @@
 # Our main tool is written in php, so we'll use a php base container
-FROM drupaldocker/php:7.3-cli-2.x
+FROM drupaldocker/php:7.1-cli
 
 # Set the working directory
 WORKDIR /updatinator
@@ -21,6 +21,10 @@ RUN set -ex; \
     \
     docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
     docker-php-ext-install gd mysqli opcache zip;
+
+// Make sure we have the latest version of Composer
+RUN curl -sS https://getcomposer.org/installer | php \
+  && mv composer.phar /usr/local/bin/composer
 
 # Install other packages we might need
 RUN apt-get install -y jq
