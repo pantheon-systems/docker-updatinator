@@ -39,6 +39,7 @@ RUN mkdir -p /updatinator/logs
 RUN curl "https://github.com/pantheon-systems/updatinate/releases/download/0.5.4/updatinate.phar" -L -o "/usr/local/bin/updatinate"
 RUN chmod +x /usr/local/bin/updatinate
 RUN updatinate self:update
+RUN updatinate --version
 
 # Install wp-cli
 RUN curl https://github.com/wp-cli/wp-cli/releases/download/v2.0.1/wp-cli-2.0.1.phar -L -o /usr/local/bin/wp
