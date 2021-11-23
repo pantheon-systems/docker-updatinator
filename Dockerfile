@@ -29,7 +29,7 @@ USER bot
 RUN mkdir -p /updatinator/logs
 
 # Install and update update-tool
-RUN curl "https://github.com/pantheon-systems/update-tool/releases/download/0.5.20/update-tool.phar" -L -o "/usr/local/bin/update-tool"
+RUN curl "https://github.com/pantheon-systems/update-tool/releases/download/0.6.0/update-tool.phar" -L -o "/usr/local/bin/update-tool"
 RUN chmod +x /usr/local/bin/update-tool
 RUN update-tool self:update
 RUN update-tool --version
