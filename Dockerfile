@@ -28,11 +28,11 @@ USER bot
 # Make a directory for the logs
 RUN mkdir -p /updatinator/logs
 
-# Install and update updatinate
-RUN curl "https://github.com/pantheon-systems/updatinate/releases/download/0.5.8/updatinate.phar" -L -o "/usr/local/bin/updatinate"
-RUN chmod +x /usr/local/bin/updatinate
-RUN updatinate self:update
-RUN updatinate --version
+# Install and update update-tool
+RUN curl "https://github.com/pantheon-systems/update-tool/releases/download/0.5.20/update-tool.phar" -L -o "/usr/local/bin/update-tool"
+RUN chmod +x /usr/local/bin/update-tool
+RUN update-tool self:update
+RUN update-tool --version
 
 # Install wp-cli
 RUN curl https://github.com/wp-cli/wp-cli/releases/download/v2.0.1/wp-cli-2.0.1.phar -L -o /usr/local/bin/wp
