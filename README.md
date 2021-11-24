@@ -13,7 +13,7 @@ In CircleCI 2.0:
 
 ## Image Contents
 
-- [Updatinate tool](https://github.com/pantheon-systems/updatinate)
+- [Update tool](https://github.com/pantheon-systems/update-tool)
 - [jq](https://stedolan.github.io/jq/)
 
 More may be added later.
