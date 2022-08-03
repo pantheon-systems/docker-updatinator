@@ -14,6 +14,9 @@ RUN apk update && apk add bash jq mysql mysql-client && \
 
 VOLUME ["/var/lib/mysql"]
 
+# Install mysql PHP library.
+RUN docker-php-ext-install mysqli
+
 COPY ./startup.sh /scripts/startup.sh
 RUN chmod +x /scripts/startup.sh
 
