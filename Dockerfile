@@ -12,6 +12,9 @@ RUN apk update && apk add bash jq mysql mysql-client && \
   mkdir /scripts && \
   rm -rf /var/cache/apk/*
 
+# Update curl
+RUN apk add --no-cache curl && apk add --upgrade --no-cache curl
+
 VOLUME ["/var/lib/mysql"]
 
 # Install mysql PHP library.
