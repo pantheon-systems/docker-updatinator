@@ -8,8 +8,13 @@ This is the source Dockerfile for the [pantheon-public/docker-updatinator](https
 In CircleCI 2.0:
 ```
   docker:
-    - image: quay.io/pantheon-public/docker-updatinator:1.x
+    - image: quay.io/pantheon-public/docker-updatinator:3.x
 ```
+
+## Branches
+
+- 3.x: Supported
+- Any other branch: Unsupported.
 
 ## Image Contents
 
